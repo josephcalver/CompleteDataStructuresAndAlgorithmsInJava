@@ -3,11 +3,11 @@ package Stack;
 public class Stack<T extends Comparable<T>> {
 	
 	private Node<T> top;
-	private int size;
+	private int size = 0;
 	
 	public void push(T data) {
 		Node<T> newNode = new Node<>(data);
-		if (this.top == null) {
+		if (isEmpty()) {
 			this.top = newNode;
 		} else {
 			newNode.setNextNode(this.top);
@@ -17,15 +17,15 @@ public class Stack<T extends Comparable<T>> {
 	}
 	
 	public Node<T> pop() {
-		Node<T> node;
-		if (this.top == null) {
+		if (isEmpty()) {
 			System.out.println("Stack is empty");
 			return null;
-		} else if (this.size == 1) {
-			node = this.top;
+		}
+		
+		Node<T> node = top;
+		if (this.size == 1) {
 			this.top = null;
 		} else {
-			node = this.top;
 			this.top = this.top.getNextNode();
 		}
 		this.size--;
@@ -33,11 +33,15 @@ public class Stack<T extends Comparable<T>> {
 	}
 	
 	public T peek() {
-		if (this.size == 0) {
+		if (isEmpty()) {
 			System.out.println("Stack is empty");
 			return null;
 		} 
 		return this.top.getData();
+	}
+	
+	private Boolean isEmpty() {
+		return this.size == 0;
 	}
 
 }
