@@ -6,7 +6,7 @@ public class Stack<T extends Comparable<T>> {
 	private int size = 0;
 	
 	public void push(T data) {
-		Node<T> newNode = new Node<>(data);
+		Node<T> newNode = new Node<T>(data);
 		if (isEmpty()) {
 			this.top = newNode;
 		} else {
@@ -22,7 +22,7 @@ public class Stack<T extends Comparable<T>> {
 			return null;
 		}
 		
-		Node<T> node = top;
+		Node<T> node = this.top;
 		if (this.size == 1) {
 			this.top = null;
 		} else {

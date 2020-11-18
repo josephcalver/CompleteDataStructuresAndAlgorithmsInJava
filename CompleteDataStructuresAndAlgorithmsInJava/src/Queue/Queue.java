@@ -11,7 +11,7 @@ public class Queue<T extends Comparable<T>> {
 	}
 	
 	public void enqueue(T data) {
-		Node<T> node = new Node<>(data);
+		Node<T> node = new Node<T>(data);
 		if (isEmpty()) {
 			this.head = node;
 			this.tail = node;
