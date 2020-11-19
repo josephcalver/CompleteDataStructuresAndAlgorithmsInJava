@@ -1,6 +1,6 @@
 package Queue;
 
-public class Node<T> {
+public class Node<T extends Comparable<T>> {
 	
 	private T data;
 	private Node<T> nextNode;
